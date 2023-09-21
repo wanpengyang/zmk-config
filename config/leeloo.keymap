@@ -81,6 +81,18 @@ nice_view_spi: &spi0 {
     };
 
     macros {
+        CLANG: CLANG {
+            label = "Lang";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings
+                = <&macro_press   &kp LCTRL>
+                , <&macro_tap     &kp SPACE> 
+                , <&macro_release &kp LCTRL>
+                ;
+        }; 
         enDSH_W: en_Dash {
             label = "enDSH_W";
             compatible = "zmk,behavior-macro";
@@ -124,6 +136,7 @@ nice_view_spi: &spi0 {
             tapping-term-ms = <200>;
             bindings = <&kp Q>, <&kp LG(Q)>;
         };
+
     };
 
     keymap {
@@ -132,10 +145,10 @@ nice_view_spi: &spi0 {
         default_osx_layer {
             label = " OSX";
             bindings = <
-&kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSLH
-&kp TAB    &tdx_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp GRAV
-&kp CAPS   &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &kp LCTRL   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+&kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSPC
+&kp TAB    &tdx_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSLH
+&kp GRAVE   &kp A      &kp S      &kp D      &kp F      &mt LSHFT G                     &mt RSHFT H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
+&mt LSHFT CAPS  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &kp LCTRL   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
                             &kp LALT   &kp LGUI   &lt 1 RET  &lt 2 MINUS    &lt 2 EQUAL &lt 1 SPACE  &kp BSPC   &mo QC_F
             >;
 
