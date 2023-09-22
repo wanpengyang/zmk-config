@@ -33,7 +33,12 @@
 #define MV_M    LC(LA(RET))
 #define MV_LW    LG(LC(LA(LEFT)))
 #define MV_RW    LG(LC(LA(RIGHT)))
-
+// all the command keys combos
+#define K_C    LG(C)
+#define K_V    LG(V)
+#define K_X    LG(X)
+#define K_Z    LG(Z)
+#define K_F    LG(F)
 #define K_B      LG(B)
 #define K_K      LG(K)
 #define K_SA     LG(A)
@@ -171,8 +176,8 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans     &trans     &trans     &trans     &kp OSX_SC &trans                           &trans     &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &kp K_CW   &trans     &trans     &trans                           &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp K_P     &trans
-&trans     &kp K_SA   &kp K_SAV  &trans     &kp K_FIND &trans                           &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &trans     &trans
-&trans     &kp K_UNDO &kp K_CUT  &kp K_COPY &kp K_PASTE &kp K_B   &kp K_K     &trans    &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &kp K_SA   &kp K_SAV  &trans     &kp K_F &trans                           &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &trans     &trans
+&trans     &kp K_Z &kp K_X  &kp K_C &kp K_V &kp K_B   &kp K_K     &trans    &trans     &trans     &trans     &trans     &trans     &trans
                                  &trans     &trans     &trans     &trans      &trans    &trans     &kp DEL    &trans
             >;
 
