@@ -178,7 +178,7 @@ nice_view_spi: &spi0 {
         lower_osx_layer {
             label = " Lower";
             bindings = <
-&trans     &trans     &trans     &trans     &trans     &trans                           &trans      &trans      &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &kp MINUS                           &kp PLUS      &trans      &trans     &trans     &kp MINUS     &kp PLUS
 &trans     &kp EXCL   &kp AT     &kp POUND  &kp DOLLAR &kp PERCENT                      &kp CARET   &kp AMPS    &kp STAR   &kp LPAR   &kp RPAR   &kp RPAR
 &trans     &trans     &kp LT     &kp LPAR   &kp LBKT   &kp LBRC                         &kp RBRC    &kp RBKT    &kp RPAR   &kp GT     &trans     &trans
 &trans     &trans     &trans     &trans     &kp MV_L     &kp MV_R     &kp MV_M      &trans    &kp MV_LW &kp MV_RW &trans     &trans     &trans     &trans
