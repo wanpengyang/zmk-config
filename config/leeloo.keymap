@@ -28,11 +28,11 @@
 #define WIN_SC  LG(LS(S))
 #define OSX_SC  LG(LS(N4))
 // move window with Rectangle app's shortcuts
-#define MV_L    LCTRL(LALT(LEFT))
-#define MV_R    LCTRL(LALT(RIGHT))
-#define MV_M    LCTRL(LALT(RET))
-#define MV_LW    LGUI(LCTRL(LALT(LEFT)))
-#define MV_RW    LGUI(LCTRL(LALT(RIGHT)))
+#define MV_L    LC(LA(LEFT))
+#define MV_R    LC(LA(RIGHT))
+#define MV_M    LC(LA(RET))
+#define MV_LW    LG(LC(LA(LEFT)))
+#define MV_RW    LG(LC(LA(RIGHT)))
 
 
 #define enDSH_X LA(MINUS)
@@ -169,7 +169,7 @@ nice_view_spi: &spi0 {
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans      &trans      &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans      &trans      &trans     &trans     &trans     &trans
 &trans     &trans     &kp LT     &kp LPAR   &kp LBKT   &kp LBRC                         &kp RBRC    &kp RBKT    &kp RPAR   &kp GT     &trans     &trans
-&trans     &trans     &trans     &trans     &kp MV_L     &kp MV_R     &kp MV_M      &trans    &trans &trans &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &kp MV_L     &kp MV_R     &kp MV_M      &trans    &kp MV_LW &kp MV_RW &trans     &trans     &trans     &trans
                                  &trans     &trans     &trans     &trans      &trans    &trans      &trans     &trans
             >;
 
