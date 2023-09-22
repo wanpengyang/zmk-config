@@ -24,8 +24,16 @@
 
 
 // Short versions
+// Screen Shot
 #define WIN_SC  LG(LS(S))
 #define OSX_SC  LG(LS(N4))
+// move window with Rectangle app's shortcuts
+#define MV_L    LC(LA(LEFT))
+#define MV_R    LC(LA(RIGHT))
+#define MV_M    LC(LA(RET))
+#define MV_LW    LG(LC(LA(LEFT)))
+#define MV_RW    LG(LC(LA(RIGHT)))
+
 
 #define enDSH_X LA(MINUS)
 #define emDSH_X LS(LA(MINUS))
@@ -77,6 +85,18 @@ nice_view_spi: &spi0 {
             key-positions = <13 14>;
             layers = <QW_M>;
             bindings = <&kp LA(F4)>;
+        };
+        combo_lshift {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            layers = <QX_M>;
+            bindings = <&kp LSHFT>;
+        };
+        combo_rshift {
+            timeout-ms = <50>;
+            key-positions = <31 32>;
+            layers = <QX_M>;
+            bindings = <&kp RSHFT>;
         };
     };
 
@@ -143,12 +163,12 @@ nice_view_spi: &spi0 {
         compatible = "zmk,keymap";
 
         default_osx_layer {
-            label = " OSX";
+            label = " MAC";
             bindings = <
 &kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSPC
 &kp TAB    &tdx_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSLH
-&kp GRAVE   &kp A      &kp S      &kp D      &kp F      &mt LSHFT G                     &mt RSHFT H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-&mt LSHFT CAPS  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &kp LCTRL   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+&kp GRAVE   &kp A      &kp S      &kp D      &kp F      &kp G                           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
+&mt LSHFT CAPS  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &mt LCTRL UNDERSCORE   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
                             &kp LALT   &kp LGUI   &lt 1 RET  &lt 2 MINUS    &lt 2 EQUAL &lt 1 SPACE  &kp BSPC   &mo QC_F
             >;
 
@@ -159,9 +179,9 @@ nice_view_spi: &spi0 {
             label = " Lower";
             bindings = <
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans      &trans      &trans     &trans     &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans                           &trans      &trans      &trans     &trans     &trans     &trans
+&trans     &kp EXCL   &kp AT     &kp POUND  &kp DOLLAR &kp PERCENT                      &kp CARET   &kp AMPS    &kp STAR   &kp LPAR   &kp RPAR   &kp RPAR
 &trans     &trans     &kp LT     &kp LPAR   &kp LBKT   &kp LBRC                         &kp RBRC    &kp RBKT    &kp RPAR   &kp GT     &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans     &trans      &trans    &kp enDSH_X &kp emDSH_X &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &kp MV_L     &kp MV_R     &kp MV_M      &trans    &kp MV_LW &kp MV_RW &trans     &trans     &trans     &trans
                                  &trans     &trans     &trans     &trans      &trans    &trans      &trans     &trans
             >;
 
@@ -195,7 +215,7 @@ nice_view_spi: &spi0 {
         };
 
         default_win_layer {
-            label = " Win 11";
+            label = " WIN";
             bindings = <
 &kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp BSLH
 &kp TAB    &tdw_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp GRAV
