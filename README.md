@@ -1,28 +1,13 @@
-# Clickety Split | Leeloo v2
+# My Leeloo v1 by Clickety Split
+![Leeloo v1](https://github.com/wanpengyang/zmk-config/assets/97911035/b2eda1b4-83df-4e7c-9b96-74a8b863e1fc)
+This is my first custom split keyboard made by [Clickety Split](https://clicketysplit.ca). 
 
-![Leeloo v2](https://github.com/ClicketySplit/build-guides/blob/main/leeloo/images/gallery/Leeloo-v2-ZMK.jpg)
-
-Keyboard Designer: [clicketysplit.ca](https://clicketysplit.ca)
+Keyboard Designer: [clicketysplit.ca]
 GitHub: [ClicketySplit](https://github.com/ClicketySplit)
 Hardware Supported: Pro Micro, Elite-C, and nice!nano v2
 
-Leeloo v2 has been designed from scratch—again.  Everything from the wiring schematic to its case.  Leeloo v2 still keeps the column stagger that it's known for, along with its low profile design.
-
-## Features/Differences from Leeloo v1
-* Support for Kailh Low Profile Choc switches with 18mm x 18mm spacing.
-  - A version for Kailh Box/MX switches with 19.05mm x 19.05mm spacing will be available in the future.
-* All switch locations are socketed.
-* Rotary encoder locations are socketed.
-  - One of two locations on each side can be used for a rotary encoder.
-* OLED Displays and nice!view Displays are natively supported, socketed, and no extra wiring is required.
-* Support for per-switch RGB underglow.
-* Better location for 110mAh or 700mAh batteries.
-  - Different location for soldering battery leads.
-* Support for Alps Alpine Micro On/off switches.
 
 # Leeloo v1
-
-![Leeloo](https://github.com/ClicketySplit/build-guides/blob/main/leeloo/images/gallery/Leeloo-v1.jpg)
 
 ## Features 
 * 4x6x5m Split Keyboard
