@@ -34,9 +34,12 @@
 #define MV_LW    LG(LC(LA(LEFT)))
 #define MV_RW    LG(LC(LA(RIGHT)))
 
-
-#define enDSH_X LA(MINUS)
-#define emDSH_X LS(LA(MINUS))
+#define K_B      LG(B)
+#define K_K      LG(K)
+#define K_SA     LG(A)
+#define K_SAV    LG(S)
+#define K_CW     LG(W)
+#define K_P      LG(LS(P))
 
 #define BT0     BT_SEL 0
 #define BT1     BT_SEL 1
@@ -113,31 +116,6 @@ nice_view_spi: &spi0 {
                 , <&macro_release &kp LCTRL>
                 ;
         }; 
-        enDSH_W: en_Dash {
-            label = "enDSH_W";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <20>;
-            tap-ms = <20>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>
-                , <&macro_release &kp LALT>
-                ;
-        };
-
-        emDSH_W: em_Dash {
-            label = "emDSH_W";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <20>;
-            tap-ms = <20>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>
-                , <&macro_release &kp LALT>
-                ;
-        };
     };
 
     behaviors {
@@ -192,9 +170,9 @@ nice_view_spi: &spi0 {
             label = " Raise";
             bindings = <
 &trans     &trans     &trans     &trans     &kp OSX_SC &trans                           &trans     &trans     &trans     &trans     &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans                           &kp PG_UP  &kp HOME   &kp UP     &kp END    &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans                           &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans     &trans      &trans    &trans     &trans     &trans     &trans     &trans     &trans
+&trans     &trans     &kp K_CW   &trans     &trans     &trans                           &kp PG_UP  &kp HOME   &kp UP     &kp END    &kp K_P     &trans
+&trans     &kp K_SA   &kp K_SAV  &trans     &kp K_FIND &trans                           &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &trans     &trans
+&trans     &kp K_UNDO &kp K_CUT  &kp K_COPY &kp K_PASTE &kp K_B   &kp K_K     &trans    &trans     &trans     &trans     &trans     &trans     &trans
                                  &trans     &trans     &trans     &trans      &trans    &trans     &kp DEL    &trans
             >;
 
@@ -233,7 +211,7 @@ nice_view_spi: &spi0 {
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &kp LT     &kp LPAR   &kp LBKT   &kp LBRC                         &kp RBRC   &kp RBKT   &kp RPAR   &kp GT     &trans     &trans
-&trans     &trans     &trans     &trans     &trans     &trans     &trans      &trans    &enDSH_W   &emDSH_W   &trans     &trans     &trans     &trans
+&trans     &trans     &trans     &trans     &trans     &trans     &trans      &trans    &trans   &trans   &trans     &trans     &trans     &trans
                                  &trans     &trans     &trans     &trans      &trans    &trans     &trans     &trans
             >;
 
