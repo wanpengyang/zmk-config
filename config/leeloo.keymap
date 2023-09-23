@@ -214,7 +214,7 @@ nice_view_spi: &spi0 {
         };
 
         lower_win_layer {
-            label = " Lower";
+            label = " L";
             bindings = <
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
@@ -226,7 +226,7 @@ nice_view_spi: &spi0 {
         };
 
         raise_win_layer {
-            label = " Raise";
+            label = " R";
             bindings = <
 &trans     &trans     &trans     &trans     &kp WIN_SC &trans                           &trans     &trans     &trans     &trans     &trans     &trans
 &trans     &trans     &trans     &trans     &trans     &trans                           &kp PG_UP  &kp HOME   &kp UP     &kp END    &trans     &trans
@@ -238,7 +238,7 @@ nice_view_spi: &spi0 {
         };
 
         adjust_win_layer {
-            label = " Adjust";
+            label = " A";
             bindings = <
 &trans     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5                           &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11
 &trans     &none      &none      &none      &none      &kp SPACE                        &none      &none      &kp VOLUP  &none      &none      &kp F12
