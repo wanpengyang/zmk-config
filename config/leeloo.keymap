@@ -165,7 +165,7 @@ nice_view_spi: &spi0 {
     keymap {
         compatible = "zmk,keymap";
 
-        default_osx_layer {
+        default_mac_layer {
             label = " MAC";
             bindings = <
 &kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                        &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
@@ -176,29 +176,31 @@ nice_view_spi: &spi0 {
             >;
         };
 
-        lower_osx_layer {
+        lower_mac_layer {
             label = " Lower";
             bindings = <
 &trans  &trans    &trans  &trans     &trans      &trans                         &trans     &trans     &trans    &trans    &kp MINUS  &kp PLUS
 &trans  &kp EXCL  &kp AT  &kp POUND  &kp DOLLAR  &kp PERCENT                    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR   &kp RPAR
 &trans  &trans    &kp LT  &kp LPAR   &kp LBKT    &kp LBRC                       &kp RBRC   &kp RBKT   &kp RPAR  &kp GT    &trans     &trans
-&trans  &trans    &trans  &trans     &kp MV_L    &kp MV_R     &kp MV_M  &trans  &kp MV_LW  &kp MV_RW  &trans    &trans    &trans     &trans
-                          &trans     &trans      &trans       &sk A     &trans  &trans     &trans     &trans
+&trans  &trans    &trans  &trans     &kp LC(LA(LEFT))    &kp LC(LA(RIGHT))     &kp LC(LA(RET))  &trans  &kp LG(LC(LA(LEFT)))  &kp LG(LC(LA(RIGHT)))  &trans    &trans    &trans     &trans
+                          &trans     &trans      &trans       &trans     &trans  &trans     &trans     &trans
             >;
         };
 
-        raise_osx_layer {
+
+        raise_mac_layer {
             label = " Raise";
             bindings = <
-&trans         &trans    &trans     &trans   &kp OSX_SC  &trans                    &trans     &trans    &trans    &trans     &trans   &trans
-&trans         &trans    &kp K_CW   &trans   &trans      &trans                    &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp K_P  &trans
-&trans         &kp K_SA  &kp K_SAV  &trans   &kp K_F     &trans                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans   &trans
-&kp LC(LG(A))  &kp K_Z   &kp K_X    &kp K_C  &kp K_V     &kp K_B  &kp K_K  &trans  &trans     &trans    &trans    &trans     &trans   &trans
+&trans         &trans    &trans     &trans   &kp LG(LS(N4))  &trans                    &trans     &trans    &trans    &trans     &trans   &trans
+&trans         &trans    &kp LG(W)   &trans   &trans      &trans                    &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LG(LS(P))  &trans
+&trans         &kp LG(A)  &kp LG(S)  &trans   &kp LG(F)     &trans                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans   &trans
+&trans  &kp LG(Z)   &kp LG(X)    &kp LG(C)  &kp LG(V)     &kp LG(B)  &kp LG(K)  &trans  &trans     &trans    &trans    &trans     &trans   &trans
                                     &trans   &trans      &trans   &trans   &trans  &trans     &kp DEL   &trans
             >;
         };
 
-        adjust_osx_layer {
+
+        adjust_mac_layer {
             label = " Adjust";
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
