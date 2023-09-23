@@ -1,5 +1,4 @@
 # My Leeloo v1 by Clickety Split
-![Leeloo v1](https://github.com/wanpengyang/zmk-config/assets/97911035/b2eda1b4-83df-4e7c-9b96-74a8b863e1fc)
 This is my first custom split keyboard made by [Clickety Split](https://clicketysplit.ca). 
 
 Keyboard Designer: [clicketysplit.ca]
