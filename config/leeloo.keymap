@@ -160,7 +160,7 @@ nice_view_spi: &spi0 {
 &kp TAB    &tdx_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSLH
 &kp GRAVE   &kp A      &kp S      &kp D      &kp F      &kp G                           &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
 &mt LSHFT CAPS  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &mt LCTRL UNDERSCORE   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
-                            &kp LALT   &kp LGUI   &lt 1 RET  &lt 2 MINUS    &lt 2 EQUAL &lt 1 SPACE  &mt RALT BSPC   &mo QC_F
+                            &kp LALT   &kp LGUI   &lt 1 SPACE  &lt 2 MINUS    &lt 2 EQUAL &lt 1 RET  &mt RALT BSPC   &mo QC_F
             >;
 
         };
@@ -208,7 +208,7 @@ nice_view_spi: &spi0 {
 &kp TAB    &tdw_Q     &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp GRAV
 &kp CAPS   &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
 &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B    &mo QC_N    &kp LGUI    &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
-                              &kp LALT &kp LCTRL  &lt 5 RET  &lt 6 MINUS    &lt 6 EQUAL &lt 5 SPACE  &kp BSPC &mo QC_F
+                              &kp LALT &kp LCTRL  &lt 5 SPACE    &lt 6 MINUS    &lt 6 EQUAL &lt 5 RET  &kp BSPC &mo QC_F
             >;
 
         };
