@@ -171,34 +171,32 @@ nice_view_spi: &spi0 {
 &kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                        &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
 &kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                         &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
 &kp GRAVE       &kp A   &kp S   &kp D     &kp F     &kp G                                         &kp H        &kp J          &kp K      &kp L    &kp SEMI  &kp SQT
-&mt LSHFT CAPS  &kp Z   &kp X   &kp C     &kp V     &kp B      &mo QC_N     &mt LCTRL UNDERSCORE  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &kp LALT  &kp LGUI  &lt 1 RET  &lt 2 MINUS  &lt 2 EQUAL           &lt 1 SPACE  &mt RALT BSPC  &mo QC_F
+&mt LSHFT CAPS  &kp Z   &kp X   &kp C     &kp V     &kp B      &mo 8        &mt LCTRL UNDERSCORE  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                &kp LALT  &kp LGUI  &lt 1 RET  &lt 2 MINUS  &lt 2 EQUAL           &lt 1 SPACE  &mt RALT BSPC  &mo 9
             >;
         };
 
         lower_mac_layer {
             label = " Lower";
             bindings = <
-&trans  &trans    &trans  &trans     &trans      &trans                         &trans     &trans     &trans    &trans    &kp MINUS  &kp PLUS
-&trans  &kp EXCL  &kp AT  &kp POUND  &kp DOLLAR  &kp PERCENT                    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR   &kp RPAR
-&trans  &trans    &kp LT  &kp LPAR   &kp LBKT    &kp LBRC                       &kp RBRC   &kp RBKT   &kp RPAR  &kp GT    &trans     &trans
-&trans  &trans    &trans  &trans     &kp LC(LA(LEFT))    &kp LC(LA(RIGHT))     &kp LC(LA(RET))  &trans  &kp LG(LC(LA(LEFT)))  &kp LG(LC(LA(RIGHT)))  &trans    &trans    &trans     &trans
-                          &trans     &trans      &trans       &trans     &trans  &trans     &trans     &trans
+&trans  &trans    &trans  &trans     &trans            &trans                                        &trans                &trans                 &trans    &trans    &kp MINUS  &kp PLUS
+&trans  &kp EXCL  &kp AT  &kp POUND  &kp DOLLAR        &kp PERCENT                                   &kp CARET             &kp AMPS               &kp STAR  &kp LPAR  &kp RPAR   &kp RPAR
+&trans  &trans    &trans  &trans     &trans            &trans                                        &kp LBRC              &kp RBRC               &kp LBKT  &kp RBKT  &trans     &trans
+&trans  &trans    &trans  &trans     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp LC(LA(RET))  &trans    &kp LG(LC(LA(LEFT)))  &kp LG(LC(LA(RIGHT)))  &kp LT    &kp GT    &trans     &trans
+                          &trans     &trans            &trans             &kp UNDER        &kp PLUS  &trans                &trans                 &trans
             >;
         };
-
 
         raise_mac_layer {
             label = " Raise";
             bindings = <
-&trans         &trans    &trans     &trans   &kp LG(LS(N4))  &trans                    &trans     &trans    &trans    &trans     &trans   &trans
-&trans         &trans    &kp LG(W)   &trans   &trans      &trans                    &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LG(LS(P))  &trans
-&trans         &kp LG(A)  &kp LG(S)  &trans   &kp LG(F)     &trans                    &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans   &trans
-&trans  &kp LG(Z)   &kp LG(X)    &kp LG(C)  &kp LG(V)     &kp LG(B)  &kp LG(K)  &trans  &trans     &trans    &trans    &trans     &trans   &trans
-                                    &trans   &trans      &trans   &trans   &trans  &trans     &kp DEL   &trans
+&trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &trans
+&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LG(LS(P))  &trans
+&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans         &trans
+&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &kp LG(K)  &trans  &trans     &trans    &trans    &trans     &trans         &trans
+                              &trans     &trans          &trans     &trans     &trans  &trans     &kp DEL   &trans
             >;
         };
-
 
         adjust_mac_layer {
             label = " Adjust";
