@@ -181,7 +181,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans    &trans  &trans     &trans            &trans                                        &trans                &trans                 &trans    &trans    &kp MINUS  &kp PLUS
 &trans  &kp EXCL  &kp AT  &kp POUND  &kp DOLLAR        &kp PERCENT                                   &kp CARET             &kp AMPS               &kp STAR  &kp LPAR  &kp RPAR   &kp RPAR
-&trans  &trans    &trans  &trans     &trans            &trans                                        &kp LBRC              &kp RBRC               &kp LBKT  &kp RBKT  &trans     &trans
+&trans  &trans    &trans  &trans     &trans            &trans                                        &kp LBRC              &kp RBRC               &kp LBKT  &kp RBKT  &kp COLON  &kp DQT
 &trans  &trans    &trans  &trans     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp LC(LA(RET))  &trans    &kp LG(LC(LA(LEFT)))  &kp LG(LC(LA(RIGHT)))  &kp LT    &kp GT    &trans     &trans
                           &trans     &trans            &trans             &kp UNDER        &kp PLUS  &trans                &trans                 &trans
             >;
