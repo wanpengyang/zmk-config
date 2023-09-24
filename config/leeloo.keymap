@@ -179,7 +179,7 @@ nice_view_spi: &spi0 {
         lower_mac_layer {
             label = " Lower";
             bindings = <
-&trans  &trans    &trans  &trans     &trans            &trans                                        &trans                &trans                 &trans    &trans    &kp MINUS  &kp PLUS
+&kp LG(LA(SPACE))  &kp LC(LA(Z))    &kp LC(LA(X))   &kp LC(LA(V))     &kp LC(LA(M))   &kp LC(LA(H))                                        &trans                &trans                 &trans    &trans    &kp MINUS  &kp PLUS
 &trans  &kp EXCL  &kp AT  &kp POUND  &kp DOLLAR        &kp PERCENT                                   &kp CARET             &kp AMPS               &kp STAR  &kp LPAR  &kp RPAR   &kp RPAR
 &trans  &trans    &trans  &trans     &trans            &trans                                        &kp LBRC              &kp RBRC               &kp LBKT  &kp RBKT  &kp COLON  &kp DQT
 &trans  &trans    &trans  &trans     &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp LC(LA(RET))  &trans    &kp LG(LC(LA(LEFT)))  &kp LG(LC(LA(RIGHT)))  &kp LT    &kp GT    &trans     &trans
