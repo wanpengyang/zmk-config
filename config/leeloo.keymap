@@ -174,7 +174,7 @@ nice_view_spi: &spi0 {
                 <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_tap &kp LEFT_ARROW>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
-                <&tog 10>;
+                <&macro_tap &tog 10>;
         };
     };
 
