@@ -25,29 +25,13 @@ Installation: [Installing ZMK](https://zmk.dev/docs/user-setup)
 Customization: [Customizing ZMK](https://zmk.dev/docs/customization)
 Development Environment: [Basic Setup](https://zmk.dev/docs/development/setup)
 
-Build commands for the default keymap of Leeloo v1:
+Add nice!view support in the build.yaml file:
 ```
-west build -d build/left -p -b nice_nano_v2 -- -DSHIELD=leeloo_left
-west build -d build/right -p -b nice_nano_v2 -- -DSHIELD=leeloo_right
-```
-
-Build commands for the default keymap of Leeloo v2:
-```
-west build -d build/left_v2 -p -b nice_nano_v2 -- -DSHIELD=leeloo_rev2_left
-west build -d build/right_v2 -p -b nice_nano_v2 -- -DSHIELD=leeloo_rev2_right
+include:
+  - board: nice_nano_v2
+    shield: leeloo_left nice_view_adapter nice_view
 ```
 
-Build commands for your custom keymap of Leeloo v1:
-```
-west build -d build/right -p -b nice_nano_v2 -- -DSHIELD=leeloo_right -DZMK_CONFIG="C:/dev/zmk/[yourName]/leeloo/config"
-west build -d build/left -p -b nice_nano_v2 -- -DSHIELD=leeloo_left -DZMK_CONFIG="C:/dev/zmk/[yourName]/leeloo/config"
-```
-
-Build commands for your custom keymap of Leeloo v2:
-```
-west build -d build/right_v2 -p -b nice_nano_v2 -- -DSHIELD=leeloo_rev2_right -DZMK_CONFIG="C:/dev/zmk/[yourName]/leeloo_v2/config"
-west build -d build/left_v2 -p -b nice_nano_v2 -- -DSHIELD=leeloo_rev2_left -DZMK_CONFIG="C:/dev/zmk/[yourName]/leeloo_v2/config"
-```
 
 ## Building Leeloo's ZMK Firmware with nice!view Displays
 There are a couple of files that need to be adjusted before the build commands can be run.
@@ -68,29 +52,12 @@ nice_view_spi: &spi0 {
 };
 ```
 
-Save your changes and close the file.
+Save your changes and commit the file. GH action will automatically build the firmware.
 
-### Sample Build Commands for nice!view Displays
-Build commands for the default keymap of Leeloo v1:
-```
-west build -d build/left -p -b nice_nano_v2 -- -DSHIELD="leeloo_left nice_view_adapter nice_view"
-west build -d build/right -p -b nice_nano_v2 -- -DSHIELD="leeloo_right nice_view_adapter nice_view"
-```
 
-Build commands for the default keymap of Leeloo v2:
-```
-west build -d build/left_v2 -p -b nice_nano_v2 -- -DSHIELD="leeloo_rev2_left nice_view_adapter nice_view"
-west build -d build/right_v2 -p -b nice_nano_v2 -- -DSHIELD="leeloo_rev2_right nice_view_adapter nice_view"
-```
-
-Build commands for your custom keymap of Leeloo v2:
-```
-west build -d build/left -p -b nice_nano_v2 -- -DSHIELD="leeloo_rev2_left nice_view_adapter nice_view" -DZMK_CONFIG="/workspaces/zmk-config/[yourName]/leeloo_v2/config"
-west build -d build/right -p -b nice_nano_v2 -- -DSHIELD="leeloo_rev2_right nice_view_adapter nice_view" -DZMK_CONFIG="/workspaces/zmk-config/[yourName]/leeloo_v2/config"
-```
 
 # Support
-If you have any questions with regards to Leeloo, please [Contact Us](https://clicketysplit.ca/pages/contact-us).
+If you have any questions with regards to Leeloo, please [Contact Clickety Split](https://clicketysplit.ca/pages/contact-us).
 
 Clickety Split
 For the love of split keyboards.
