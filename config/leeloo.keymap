@@ -174,7 +174,7 @@ nice_view_spi: &spi0 {
             bindings =
                 <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_param_1to1>,
-                <&macro_tap &kp MACRO_PLACEHOLDER>,
+                <&kp MACRO_PLACEHOLDER>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_tap &tog 10>;
         };
