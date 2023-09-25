@@ -142,6 +142,11 @@ nice_view_spi: &spi0 {
             bindings = <&kp LG(P)>;
             key-positions = <40 39>;
         };
+
+        tognav {
+            bindings = <&tog 10>;
+            key-positions = <47 48>;
+        };
     };
 
     macros {
@@ -293,6 +298,18 @@ nice_view_spi: &spi0 {
 &none        &none       &none    &bt BT_CLR  &none    &none   &trans  &trans  &none    &none    &bt BT_CLR  &none    &none       &none
                                   &none       &none    &trans  &trans  &trans  &trans   &none    &none
             >;
+        };
+
+        NAV {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans    &trans    &kp PAGE_UP
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans    &trans    &kp PAGE_DOWN
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans    &kp UP    &tog 10
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "NAV";
         };
     };
 };
