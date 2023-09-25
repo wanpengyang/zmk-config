@@ -160,7 +160,7 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-tap-dance";
             label = "OSX_QUIT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <100>;
             bindings =
                 <&kp Q>,
                 <&kp LG(Q)>;
