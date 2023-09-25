@@ -170,11 +170,10 @@ nice_view_spi: &spi0 {
             label = "mvd";
             wait-ms = <20>;
             tap-ms = <20>;
-            #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_param_1to1>,
-                <&kp MACRO_PLACEHOLDER>,
+                <&macro_tap &kp MACRO_PLACEHOLDER>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_tap &tog 10>;
         };
