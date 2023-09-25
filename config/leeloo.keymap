@@ -164,15 +164,17 @@ nice_view_spi: &spi0 {
                 <&macro_release>,
                 <&kp LCTRL>;
         };
-        mvwl_macro: mvwl_macro {
-            compatible = "zmk,behavior-macro";
-            label = "MVWL_MACRO";
+        mvd: mvd {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>; // Must be 1
+            label = "MVd_MACRO";
             wait-ms = <20>;
             tap-ms = <20>;
             #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
-                <&macro_tap &kp LEFT_ARROW>,
+                <&macro_param_1to1>,
+                <&macro_tap &kp MACRO_PLACEHOLDER>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_tap &tog 10>;
         };
@@ -316,7 +318,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_UP
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_DOWN
-&trans  &trans  &trans  &trans  &trans  &trans                  &mvwl_macro      &kp LG(LC(LA(LEFT_ARROW)))  &kp LG(LC(LA(RIGHT)))  &trans    &kp UP    &tog 10
+&trans  &trans  &trans  &trans  &trans  &trans                  &mvd LEFT      &kp LG(LC(LA(LEFT_ARROW)))  &kp LG(LC(LA(RIGHT)))  &trans    &kp UP    &tog 10
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))            &kp LC(LA(RIGHT))      &kp LEFT  &kp DOWN  &kp RIGHT
                         &trans  &trans  &trans  &trans  &trans  &trans           &trans                      &trans
             >;
