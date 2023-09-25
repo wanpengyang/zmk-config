@@ -319,7 +319,7 @@ nice_view_spi: &spi0 {
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_UP
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_DOWN
 &trans  &trans  &trans  &trans  &trans  &trans                  &mvd LEFT      &kp LG(LC(LA(LEFT_ARROW)))  &kp LG(LC(LA(RIGHT)))  &trans    &kp UP    &tog 10
-&  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))            &kp LC(LA(RIGHT))      &kp LEFT  &kp DOWN  &kp RIGHT
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))            &kp LC(LA(RIGHT))      &kp LEFT  &kp DOWN  &kp RIGHT
                         &trans  &trans  &trans  &trans  &trans  &trans           &trans                      &trans
             >;
 
