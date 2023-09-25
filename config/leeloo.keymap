@@ -122,6 +122,11 @@ nice_view_spi: &spi0 {
             layers = <QX_M>;
             bindings = <&kp RSHFT>;
         };
+
+        Raycast {
+            bindings = <&kp LG(SPACE)>;
+            key-positions = <31 32 33>;
+        };
     };
 
     macros {
