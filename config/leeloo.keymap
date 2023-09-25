@@ -139,7 +139,7 @@ nice_view_spi: &spi0 {
         };
 
         paste {
-            bindings = <&kp LG(P)>;
+            bindings = <&kp LG(V)>;
             key-positions = <40 39>;
         };
 
