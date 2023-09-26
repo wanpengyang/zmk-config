@@ -199,6 +199,16 @@ nice_view_spi: &spi0 {
                 <&kp Q>,
                 <&kp LG(Q)>;
         };
+         ht: hold_tap {
+            label = "hold_tap";
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -209,7 +219,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                  &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
 &kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                   &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
-&kp GRAVE       &kp A   &kp S   &kp D     &kp F     &kp G                                   &kp H        &kp J          &kp K      &kp L    &kp SEMI  &kp SQT
+&kp GRAVE       &ht LCTRL A   &ht LALT S   &ht LGUI D     &ht LSHIFT F     &kp G            &kp H        &ht RSHIFT J          &ht RGUI K      &ht RALT L    &ht RCTRL SEMI  &kp SQT
 &mt LSHFT CAPS  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt 8 UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                                 &kp LALT  &kp LGUI  &lt 1 RET  &lt 2 MINUS  &lt 2 EQUAL     &lt 1 SPACE  &mt RALT BSPC  &mo 9
             >;
