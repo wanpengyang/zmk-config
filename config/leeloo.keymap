@@ -199,8 +199,8 @@ nice_view_spi: &spi0 {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick_tap_ms = <0>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <250>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -244,8 +244,8 @@ nice_view_spi: &spi0 {
             label = " Raise";
             bindings = <
 &trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &trans
-&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LG(LS(P))  &trans
-&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp UP         &trans
+&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp PG_DN  &kp HOME    &kp END    &kp LG(LS(P))  &trans
+&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp UP         &trans
 &trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &kp LG(K)  &trans  &trans     &trans    &trans    &kp LEFT   &kp DOWN       &kp RIGHT
                               &trans     &trans          &trans     &trans     &trans  &trans     &kp DEL   &trans
             >;
