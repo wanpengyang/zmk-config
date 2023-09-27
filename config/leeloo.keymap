@@ -212,7 +212,7 @@ nice_view_spi: &spi0 {
 &kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                   &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
 &kp GRAVE       &kp A   &hm LCTRL S   &hm LALT D     &hm LGUI F     &kp G            &kp H        &hm LGUI J          &hm RALT K      &hm RCTRL L    &kp SEMI  &kp SQT
 &td LSHFT LC(SPACE)  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt 8 UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &tog 10  &lt 2 TAB  &hm LSHIFT RET  &lt 1 MINUS  &lt 1 EQUAL     &hm RSHIFT SPACE  &lt 2 BSPC  &mo 9
+                                &tog 10  &lt 2 TAB  &mt LSHIFT RET  &lt 1 MINUS  &lt 1 EQUAL     &mt RSHIFT SPACE  &lt 2 BSPC  &mo 9
             >;
         };
 
