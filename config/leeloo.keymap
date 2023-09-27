@@ -147,7 +147,7 @@ nice_view_spi: &spi0 {
                 <&macro_press &kp LCTRL &kp LALT>,
                 <&macro_param_1to1>,
                 <&macro_tap &kp MACRO_PLACEHOLDER>,
-                <&macro_release &kp LCTRL &kp LALT>,
+                <&macro_release &kp LCTRL &kp LALT>;
                 // <&macro_tap &tog 10>;
         };
         
