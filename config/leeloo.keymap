@@ -27,32 +27,6 @@
 #define WIN_SC  LG(LS(S))
 #define OSX_SC  LG(LS(N4))
 
-// move window with Rectangle app's shortcuts
-
-#define MV_L    LC(LA(LEFT))
-#define MV_R    LC(LA(RIGHT))
-#define MV_M    LC(LA(RET))
-#define MV_LW    LG(LC(LA(LEFT)))
-#define MV_RW    LG(LC(LA(RIGHT)))
-
-// all the command keys combos
-
-#define K_C    LG(C)
-#define K_V    LG(V)
-#define K_X    LG(X)
-#define K_Z    LG(Z)
-#define K_F    LG(F)
-#define K_B      LG(B)
-#define K_K      LG(K)
-#define K_SA     LG(A)
-#define K_SAV    LG(S)
-#define K_CW     LG(W)
-#define K_P      LG(LS(P))
-
-// AltTab specific shortcuts
-// switch to other apps
-
-#define S_APP    LA(TAB)
 
 // switch to other windows of the same app
 
@@ -150,24 +124,10 @@ nice_view_spi: &spi0 {
     };
 
     macros {
-        CLANG: CLANG {
-            label = "Lang";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <20>;
-            tap-ms = <20>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LCTRL>;
-        };
         mvd: mvd {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>; // Must be 1
-            label = "mvd";
+            label = "Move Display";
             wait-ms = <20>;
             tap-ms = <20>;
             bindings =
@@ -176,6 +136,19 @@ nice_view_spi: &spi0 {
                 <&macro_tap &kp MACRO_PLACEHOLDER>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
                 <&macro_tap &tog 10>;
+        };
+        mvw: mvw {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>; // Must be 1
+            label = "Move Window";
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_press &kp LCTRL &kp LALT>,
+                <&macro_param_1to1>,
+                <&macro_tap &kp MACRO_PLACEHOLDER>,
+                <&macro_release &kp LCTRL &kp LALT>;
+                // <&macro_tap &tog 10>;
         };
         
     };
@@ -209,6 +182,24 @@ nice_view_spi: &spi0 {
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+          hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        	td: tapdance {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAPDANCE";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -219,30 +210,30 @@ nice_view_spi: &spi0 {
             bindings = <
 &kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                  &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
 &kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                   &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
-&kp GRAVE       &ht LCTRL A   &ht LALT S   &ht LGUI D     &ht LSHIFT F     &kp G            &kp H        &ht RSHIFT J          &ht RGUI K      &ht RALT L    &ht RCTRL SEMI  &kp SQT
-&mt LSHFT CAPS  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt 8 UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &kp LALT  &kp LGUI  &lt 1 RET  &lt 2 MINUS  &lt 2 EQUAL     &lt 1 SPACE  &mt RALT BSPC  &mo 9
+&kp GRAVE       &kp A   &hm LCTRL S   &hm LALT D     &hm LGUI F     &kp G            &kp H        &hm LGUI J          &hm RALT K      &hm RCTRL L    &kp SEMI  &kp SQT
+&td LSHFT LC(SPACE)  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt 8 UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                &tog 10  &lt 2 TAB  &ht LSHIFT RET  &lt 1 MINUS  &lt 1 EQUAL     &ht RSHIFT SPACE  &lt 2 BSPC  &mo 9
             >;
         };
 
         lower_mac_layer {
             label = " Lower";
             bindings = <
-&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                                  &trans     &trans    &trans    &trans    &kp UNDER     &kp PLUS
-&trans             &kp EXCL       &kp AT         &kp POUND      &kp DOLLAR     &kp PERCENT                                    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR      &kp PIPE
-&kp TILDE          &kp N1         &kp N2         &kp N3         &kp N4         &kp N5                                         &kp LBRC   &kp RBRC  &kp LBKT  &kp RBKT  &kp COLON     &kp DQT
-&trans             &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &kp LC(LA(RET))  &kp LG(ENTER)  &kp UNDER  &kp PLUS  &kp LT    &kp GT    &kp QUESTION  &tog 10
-                                                 &trans         &trans         &trans         &kp UNDER        &kp PLUS       &trans     &trans    &trans
+&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                 &trans     &trans    &trans    &trans    &kp UNDER     &kp PLUS
+&trans             &kp EXCL       &kp AT         &kp POUND      &kp DOLLAR     &kp PERCENT                   &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR      &kp PIPE
+&kp TILDE          &kp N1         &kp N2         &kp N3         &kp N4         &kp N5                        &kp MINUS   &kp EQUAL  &kp GRAVE  &kp LBKT  &kp RBKT     &kp DQT
+&trans             &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &trans &trans  &kp UNDER  &kp PLUS  &kp TILDE    &kp LBRC    &kp RBRC  &trans
+                                                 &trans         &trans         &trans         &trans        &trans       &trans     &trans    &trans
             >;
         };
 
         raise_mac_layer {
             label = " Raise";
             bindings = <
-&trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &trans
-&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp LG(LS(P))  &trans
-&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp UP         &trans
-&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &kp LG(K)  &trans  &trans     &trans    &trans    &kp LEFT   &kp DOWN       &kp RIGHT
+&trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &kp C_VOL_UP
+&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp PG_DN  &kp HOME    &kp END    &kp LG(LS(P))  &kp C_VOL_DN
+&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp UP         &trans
+&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &trans  &mvw RET  &mvw LEFT &mvw RIGHT    &trans    &kp LEFT   &kp DOWN       &kp RIGHT
                               &trans     &trans          &trans     &trans     &trans  &trans     &kp DEL   &trans
             >;
         };
