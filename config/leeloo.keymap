@@ -10,16 +10,14 @@
 
 // Layers
 
-#define QX_M    0       // Main
-#define QX_L    1       // Lower
-#define QX_R    2       // Raise
-#define QX_A    3       // Adjust
-#define QW_M    4       // Main
-#define QW_L    5       // Lower
-#define QW_R    6       // Raise
-#define QW_A    7       // Adjust
-#define QC_N    8       // Number Pad
-#define QC_F    9       // Firmware
+#define MAC    0       
+#define LOWER    1     
+#define RAISE    2    
+#define TRI    3     
+#define WIN    4    
+#define NUM    5   
+#define BLE    6  
+#define NAV    7 
 
 // Short versions
 // Screen Shot
@@ -58,12 +56,7 @@ nice_view_spi: &spi0 {
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        adjust_win_layer {
-            if-layers = <5 6>;
-            then-layer = <7>;
-        };
-
-        adjust_osx_layer {
+        adjust_layer {
             if-layers = <1 2>;
             then-layer = <3>;
         };
@@ -78,24 +71,6 @@ nice_view_spi: &spi0 {
             layers = <QW_M>;
             bindings = <&kp LA(F4)>;
         };
-
-        // // D+F becomes Left Shift
-
-        // combo_lshift {
-        //     timeout-ms = <50>;
-        //     key-positions = <27 28>;
-        //     layers = <QX_M>;
-        //     bindings = <&kp LSHFT>;
-        // };
-
-        // // J+K becomes right shift
-
-        // combo_rshift {
-        //     timeout-ms = <50>;
-        //     key-positions = <31 32>;
-        //     layers = <QX_M>;
-        //     bindings = <&kp RSHFT>;
-        // };
 
         Raycast {
             bindings = <&kp LG(SPACE)>;
@@ -118,7 +93,7 @@ nice_view_spi: &spi0 {
         };
 
         tognav {
-            bindings = <&tog 10>;
+            bindings = <&tog NAV>;
             key-positions = <47 48>;
         };
     };
@@ -135,7 +110,7 @@ nice_view_spi: &spi0 {
                 <&macro_param_1to1>,
                 <&macro_tap &kp MACRO_PLACEHOLDER>,
                 <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
-                <&macro_tap &tog 10>;
+                <&macro_tap &tog NAV>;
         };
         mvw: mvw {
             compatible = "zmk,behavior-macro-one-param";
@@ -211,12 +186,12 @@ nice_view_spi: &spi0 {
 &kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                  &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
 &kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                   &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
 &kp GRAVE       &kp A   &hm LCTRL S   &hm LALT D     &hm LGUI F     &kp G            &kp H        &hm LGUI J          &hm RALT K      &hm RCTRL L    &kp SEMI  &kp SQT
-&td LSHFT LC(SPACE)  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt 8 UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &tog 10  &lt 2 TAB  &ht LSHIFT RET  &lt 1 MINUS  &lt 1 EQUAL     &ht RSHIFT SPACE  &lt 2 BSPC  &mo 9
+&td LSHFT LC(SPACE)  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt NUM UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                                &tog NAV  &lt RAISE TAB  &ht LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL     &ht RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
 
-        lower_mac_layer {
+        lower_layer {
             label = " Lower";
             bindings = <
 &kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                 &trans     &trans    &trans    &trans    &kp UNDER     &kp PLUS
@@ -227,7 +202,7 @@ nice_view_spi: &spi0 {
             >;
         };
 
-        raise_mac_layer {
+        raise_layer {
             label = " Raise";
             bindings = <
 &trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &kp C_VOL_UP
@@ -238,60 +213,28 @@ nice_view_spi: &spi0 {
             >;
         };
 
-        adjust_mac_layer {
-            label = " Adjust";
+        tri_layer {
+            label = " TRI";
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6  &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
 &trans  &none   &none   &none   &none   &none                   &none   &none      &kp VOLUP  &none   &none    &kp F12
 &trans  &none   &none   &none   &none   &none                   &none   &none      &kp VOLDN  &none   &none    &none
 &trans  &none   &none   &none   &none   &none   &trans  &trans  &none   &kp VOLMT  &none      &none   &none    &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans     &tog QW_M
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans     &tog WIN
             >;
         };
 
-        default_win_layer {
+        win_layer {
             label = " WIN";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                               &kp N6       &kp N7    &kp N8     &kp N9   &kp N0    &kp BSLH
-&kp TAB    &tdw_Q  &kp W   &kp E     &kp R      &kp T                                &kp Y        &kp U     &kp I      &kp O    &kp P     &kp GRAV
-&kp CAPS   &kp A   &kp S   &kp D     &kp F      &kp G                                &kp H        &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V      &kp B      &mo QC_N     &kp LGUI     &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LALT  &kp LCTRL  &lt 5 RET  &lt 6 MINUS  &lt 6 EQUAL  &lt 5 SPACE  &kp BSPC  &mo QC_F
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                               &kp N6       &kp N7    &kp N8     &kp N9   &kp N0    &kp BSPC
+&kp TAB    &tdw_Q  &kp W   &kp E     &kp R      &kp T                                &kp Y        &kp U     &kp I      &kp O    &kp P     &kp BSLH
+&kp GRAVE   &kp A   &hm LGUI S   &hm LALT D     &hm LCTRL F      &kp G               &kp H        &hm LCTRL J     &hm RALT K      &hm LGUI L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp V      &kp B      &lt NUM UNDER    &mt LGUI PLUS     &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                           &tog NAV  &lt RAISE TAB  &ht LSHFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &ht RSHFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
 
-        lower_win_layer {
-            label = " L";
-            bindings = <
-&trans  &trans  &trans  &trans    &trans    &trans                    &trans    &trans    &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans    &trans    &trans                    &trans    &trans    &trans    &trans  &trans  &trans
-&trans  &trans  &kp LT  &kp LPAR  &kp LBKT  &kp LBRC                  &kp RBRC  &kp RBKT  &kp RPAR  &kp GT  &trans  &trans
-&trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans  &trans    &trans    &trans    &trans  &trans  &trans
-                        &trans    &trans    &trans    &trans  &trans  &trans    &trans    &trans
-            >;
-        };
-
-        raise_win_layer {
-            label = " R";
-            bindings = <
-&trans  &trans  &trans  &trans  &kp WIN_SC  &trans                  &trans     &trans    &trans    &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans      &trans                  &kp PG_UP  &kp HOME  &kp UP    &kp END    &trans  &trans
-&trans  &trans  &trans  &trans  &trans      &trans                  &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans     &trans    &trans    &trans     &trans  &trans
-                        &trans  &trans      &trans  &trans  &trans  &trans     &kp DEL   &trans
-            >;
-        };
-
-        adjust_win_layer {
-            label = " A";
-            bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &kp F6  &kp F7     &kp F8     &kp F9  &kp F10  &kp F11
-&trans  &none   &none   &none   &none   &kp SPACE                  &none   &none      &kp VOLUP  &none   &none    &kp F12
-&trans  &none   &none   &none   &none   &none                      &none   &none      &kp VOLDN  &none   &none    &none
-&trans  &none   &none   &none   &none   &none      &trans  &trans  &none   &kp VOLMT  &none      &none   &none    &trans
-                        &trans  &trans  &trans     &trans  &trans  &trans  &trans     &tog QW_M
-            >;
-        };
 
         numpad_layer {
             label = " NumPad";
@@ -319,7 +262,7 @@ nice_view_spi: &spi0 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_UP
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_DOWN
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &mvd LEFT  &mvd RIGHT  &trans    &kp UP    &tog 10
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &mvd LEFT  &mvd RIGHT  &trans    &kp UP    &tog NAV
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))            &kp LC(LA(RIGHT))      &kp LEFT  &kp DOWN  &kp RIGHT
                         &trans  &trans  &trans  &trans  &trans  &trans           &trans                      &trans
             >;
