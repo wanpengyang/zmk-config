@@ -68,7 +68,7 @@ nice_view_spi: &spi0 {
         combo_quit_app_win {
             timeout-ms = <50>;
             key-positions = <13 14>;
-            layers = <QW_M>;
+            layers = <WIN>;
             bindings = <&kp LA(F4)>;
         };
 
