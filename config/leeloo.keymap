@@ -10,21 +10,20 @@
 
 // Layers
 
-#define MAC    0       
-#define LOWER    1     
-#define RAISE    2    
-#define TRI    3     
-#define WIN    4    
-#define NUM    5   
-#define BLE    6  
-#define NAV    7 
+#define MAC    0
+#define LOWER    1
+#define RAISE    2
+#define TRI    3
+#define WIN    4
+#define NUM    5
+#define BLE    6
+#define NAV    7
 
 // Short versions
 // Screen Shot
 
 #define WIN_SC  LG(LS(S))
 #define OSX_SC  LG(LS(N4))
-
 
 // switch to other windows of the same app
 
@@ -106,11 +105,14 @@ nice_view_spi: &spi0 {
             wait-ms = <20>;
             tap-ms = <20>;
             bindings =
-                <&macro_press &kp LGUI &kp LCTRL &kp LALT>,
-                <&macro_param_1to1>,
-                <&macro_tap &kp MACRO_PLACEHOLDER>,
-                <&macro_release &kp LGUI &kp LCTRL &kp LALT>,
-                <&macro_tap &tog NAV>;
+                <&macro_press>,
+                <&kp LGUI &kp LCTRL &kp LALT &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LGUI &kp LCTRL &kp LALT>,
+                <&macro_tap>,
+                <&tog NAV>;
         };
         mvw: mvw {
             compatible = "zmk,behavior-macro-one-param";
@@ -119,13 +121,15 @@ nice_view_spi: &spi0 {
             wait-ms = <20>;
             tap-ms = <20>;
             bindings =
-                <&macro_press &kp LCTRL &kp LALT>,
-                <&macro_param_1to1>,
-                <&macro_tap &kp MACRO_PLACEHOLDER>,
-                <&macro_release &kp LCTRL &kp LALT>;
-                // <&macro_tap &tog 10>;
+                <&macro_press>,
+                <&kp LCTRL &kp LALT &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LCTRL &kp LALT>;
+
+            // <&macro_tap &tog 10>;
         };
-        
     };
 
     behaviors {
@@ -147,7 +151,7 @@ nice_view_spi: &spi0 {
                 <&kp Q>,
                 <&kp LG(Q)>;
         };
-         ht: hold_tap {
+        ht: hold_tap {
             label = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -155,25 +159,31 @@ nice_view_spi: &spi0 {
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
             global-quick-tap;
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
-          hm: homerow_mods {
+        hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <250>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
-        	td: tapdance {
+        td: tapdance {
             compatible = "zmk,behavior-hold-tap";
             label = "TAPDANCE";
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
     };
 
@@ -183,33 +193,33 @@ nice_view_spi: &spi0 {
         default_mac_layer {
             label = " MAC";
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                  &kp N6       &kp N7         &kp N8     &kp N9   &kp N0    &kp BSPC
-&kp TAB         &tdx_Q  &kp W   &kp E     &kp R     &kp T                                   &kp Y        &kp U          &kp I      &kp O    &kp P     &kp BSLH
-&kp GRAVE       &kp A   &hm LCTRL S   &hm LALT D     &hm LGUI F     &kp G            &kp H        &hm LGUI J          &hm RALT K      &hm RCTRL L    &kp SEMI  &kp SQT
-&td LSHFT LC(SPACE)  &kp Z   &kp X   &kp C     &kp V     &kp B      &lt NUM UNDER  &mt LCTRL PLUS  &kp N        &kp M          &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                &tog NAV  &lt RAISE TAB  &ht LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL     &ht RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
+&kp ESC              &kp N1  &kp N2       &kp N3      &kp N4         &kp N5                                            &kp N6            &kp N7          &kp N8      &kp N9       &kp N0    &kp BSPC
+&kp TAB              &tdx_Q  &kp W        &kp E       &kp R          &kp T                                             &kp Y             &kp U           &kp I       &kp O        &kp P     &kp BSLH
+&kp GRAVE            &kp A   &hm LCTRL S  &hm LALT D  &hm LGUI F     &kp G                                             &kp H             &hm LGUI J      &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
+&td LSHFT LC(SPACE)  &kp Z   &kp X        &kp C       &kp V          &kp B           &lt NUM UNDER    &mt LCTRL PLUS   &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
+                                          &tog NAV    &lt RAISE TAB  &ht LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &ht RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
 
         lower_layer {
             label = " Lower";
             bindings = <
-&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                 &trans     &trans    &trans    &trans    &kp UNDER     &kp PLUS
-&trans             &kp EXCL       &kp AT         &kp POUND      &kp DOLLAR     &kp PERCENT                   &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR      &kp PIPE
-&kp TILDE          &kp N1         &kp N2         &kp N3         &kp N4         &kp N5                        &kp MINUS   &kp EQUAL  &kp GRAVE  &kp LBKT  &kp RBKT     &kp DQT
-&trans             &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &trans &trans  &kp UNDER  &kp PLUS  &kp TILDE    &kp LBRC    &kp RBRC  &trans
-                                                 &trans         &trans         &trans         &trans        &trans       &trans     &trans    &trans
+&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                  &trans     &trans     &trans     &trans    &trans    &trans
+&trans             &kp EXCL       &kp AT         &kp POUND      &kp DOLLAR     &kp PERCENT                    &kp CARET  &kp AMPS   &kp STAR   &kp LPAR  &kp RPAR  &kp PIPE
+&kp TILDE          &kp N1         &kp N2         &kp N3         &kp N4         &kp N5                         &kp MINUS  &kp EQUAL  &kp GRAVE  &kp LBKT  &kp RBKT  &kp DQT
+&trans             &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &trans  &trans  &kp UNDER  &kp PLUS   &kp TILDE  &kp LBRC  &kp RBRC  &trans
+                                                 &trans         &trans         &trans         &trans  &trans  &trans     &trans     &trans
             >;
         };
 
         raise_layer {
             label = " Raise";
             bindings = <
-&trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                        &trans     &trans    &trans    &trans     &trans         &kp C_VOL_UP
-&trans  &trans     &kp LG(W)  &trans     &trans          &trans                        &kp PG_UP  &kp PG_DN  &kp HOME    &kp END    &kp LG(LS(P))  &kp C_VOL_DN
-&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp UP         &trans
-&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &trans  &mvw RET  &mvw LEFT &mvw RIGHT    &trans    &kp LEFT   &kp DOWN       &kp RIGHT
-                              &trans     &trans          &trans     &trans     &trans  &trans     &kp DEL   &trans
+&trans  &trans     &trans     &trans     &kp LG(LS(N4))  &trans                       &trans     &trans      &trans    &trans     &trans         &kp C_VOL_UP
+&trans  &trans     &kp LG(W)  &trans     &trans          &trans                       &kp PG_UP  &kp PG_DN   &kp HOME  &kp END    &kp LG(LS(P))  &kp C_VOL_DN
+&trans  &kp LG(A)  &kp LG(S)  &trans     &kp LG(F)       &trans                       &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT  &kp UP         &trans
+&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)       &kp LG(B)  &trans  &mvw RET  &mvw LEFT  &mvw RIGHT  &trans    &kp LEFT   &kp DOWN       &kp RIGHT
+                              &trans     &trans          &trans     &trans  &trans    &trans     &kp DEL     &trans
             >;
         };
 
@@ -227,14 +237,13 @@ nice_view_spi: &spi0 {
         win_layer {
             label = " WIN";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                               &kp N6       &kp N7    &kp N8     &kp N9   &kp N0    &kp BSPC
-&kp TAB    &tdw_Q  &kp W   &kp E     &kp R      &kp T                                &kp Y        &kp U     &kp I      &kp O    &kp P     &kp BSLH
-&kp GRAVE   &kp A   &hm LGUI S   &hm LALT D     &hm LCTRL F      &kp G               &kp H        &hm LCTRL J     &hm RALT K      &hm LGUI L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V      &kp B      &lt NUM UNDER    &mt LGUI PLUS     &kp N        &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &tog NAV  &lt RAISE TAB  &ht LSHFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &ht RSHFT SPACE  &lt RAISE BSPC  &mo BLE
+&kp ESC    &kp N1  &kp N2      &kp N3      &kp N4         &kp N5                                           &kp N6           &kp N7          &kp N8      &kp N9      &kp N0    &kp BSPC
+&kp TAB    &tdw_Q  &kp W       &kp E       &kp R          &kp T                                            &kp Y            &kp U           &kp I       &kp O       &kp P     &kp BSLH
+&kp GRAVE  &kp A   &hm LGUI S  &hm LALT D  &hm LCTRL F    &kp G                                            &kp H            &hm LCTRL J     &hm RALT K  &hm LGUI L  &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X       &kp C       &kp V          &kp B          &lt NUM UNDER    &mt LGUI PLUS    &kp N            &kp M           &kp COMMA   &kp DOT     &kp FSLH  &kp RSHFT
+                               &tog NAV    &lt RAISE TAB  &ht LSHFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &ht RSHFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
-
 
         numpad_layer {
             label = " NumPad";
@@ -250,21 +259,21 @@ nice_view_spi: &spi0 {
         firmware_layer {
             label = " BLE";
             bindings = <
-&bt BT0      &bt BT1     &bt BT2  &bt BT3     &bt BT4  &none                   &bt BT0  &bt BT1  &bt BT2     &bt BT3  &bt BT4     &none
-&bootloader  &sys_reset  &none    &none       &none    &none                   &none    &none    &none       &none    &sys_reset  &bootloader
-&none        &none       &none    &none       &none    &none                   &none    &none    &none       &none    &none       &none
-&none        &none       &none    &bt BT_CLR  &none    &none   &trans  &trans  &none    &none    &bt BT_CLR  &none    &none       &none
-                                  &none       &none    &trans  &trans  &trans  &trans   &none    &none
+&bt BT0      &bt BT1     &bt BT2  &bt BT3  &bt BT4  &none                           &bt BT0  &bt BT1  &bt BT2  &bt BT3  &bt BT4     &none
+&bootloader  &sys_reset  &none    &none    &none    &none                           &none    &none    &none    &none    &sys_reset  &bootloader
+&none        &none       &none    &none    &none    &none                           &none    &none    &none    &none    &none       &none
+&none        &none       &none    &none    &none    &none   &bt BT_CLR  &bt BT_CLR  &none    &none    &none    &none    &none       &none
+                                  &none    &none    &trans  &trans      &trans      &trans   &none    &none
             >;
         };
 
         NAV {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_UP
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans                      &trans                 &trans    &trans    &kp PAGE_DOWN
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &mvd LEFT  &mvd RIGHT  &trans    &kp UP    &tog NAV
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))            &kp LC(LA(RIGHT))      &kp LEFT  &kp DOWN  &kp RIGHT
-                        &trans  &trans  &trans  &trans  &trans  &trans           &trans                      &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans            &trans             &trans    &trans    &kp PAGE_UP
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &trans            &trans             &trans    &trans    &kp PAGE_DOWN
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans           &mvd LEFT         &mvd RIGHT         &trans    &kp UP    &tog NAV
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(RET))  &kp LC(LA(LEFT))  &kp LC(LA(RIGHT))  &kp LEFT  &kp DOWN  &kp RIGHT
+                        &trans  &trans  &trans  &trans  &trans  &trans           &trans            &trans
             >;
 
             label = "NAV";
