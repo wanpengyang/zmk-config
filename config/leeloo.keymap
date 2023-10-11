@@ -156,7 +156,7 @@ nice_view_spi: &spi0 {
     };
 
     behaviors {
-sc: shift_caps {
+        sc: shift_caps {
             compatible = "zmk,behavior-hold-tap";
             label = "shiftcaps";
             #binding-cells = <2>;
@@ -165,6 +165,13 @@ sc: shift_caps {
             bindings = <&kp>, <&caps_macro>;
         };
 
+        td_mt: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MOD_TAP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sc LSHIFT 0>, <&globe_macro>;
+        };
 
         tdw_Q: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -218,7 +225,7 @@ sc: shift_caps {
 &kp ESC       &kp N1  &kp N2       &kp N3         &kp N4         &kp N5                                            &kp N6            &kp N7          &kp N8      &kp N9       &kp N0    &kp BSPC
 &kp TAB       &tdx_Q  &kp W        &kp E          &kp R          &kp T                                             &kp Y             &kp U           &kp I       &kp O        &kp P     &kp BSLH
 &kp GRAVE     &kp A   &hm LCTRL S  &hm LALT D     &hm LGUI F     &kp G                                             &kp H             &hm LGUI J      &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
-&sc LSHIFT 0  &kp Z   &kp X        &kp C          &kp V          &kp B           &lt NUM UNDER    &td              &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
+&td_mt  &kp Z   &kp X        &kp C          &kp V          &kp B           &lt NUM UNDER    &td              &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
                                    &globe_macro  &lt RAISE TAB  &hm LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &hm RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
