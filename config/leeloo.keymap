@@ -170,7 +170,7 @@ nice_view_spi: &spi0 {
             label = "TAP_DANCE_MOD_TAP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sc LSHIFT 0>, <&globe_macro>;
+            bindings = <&kp LSHIFT>, <&caps_macro>;
         };
 
         tdw_Q: tap_dance_0 {
