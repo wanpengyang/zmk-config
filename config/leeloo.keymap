@@ -162,7 +162,7 @@ sc: shift_caps {
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&caps_macro>;
+            bindings = <&kp>, <&kp>;
         };
 
 
@@ -218,7 +218,7 @@ sc: shift_caps {
 &kp ESC       &kp N1  &kp N2       &kp N3         &kp N4         &kp N5                                            &kp N6            &kp N7          &kp N8      &kp N9       &kp N0    &kp BSPC
 &kp TAB       &tdx_Q  &kp W        &kp E          &kp R          &kp T                                             &kp Y             &kp U           &kp I       &kp O        &kp P     &kp BSLH
 &kp GRAVE     &kp A   &hm LCTRL S  &hm LALT D     &hm LGUI F     &kp G                                             &kp H             &hm LGUI J      &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
-&sc SHIFT 0  &kp Z   &kp X        &kp C          &kp V          &kp B           &lt NUM UNDER    &td              &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
+&sc SHIFT CAPS  &kp Z   &kp X        &kp C          &kp V          &kp B           &lt NUM UNDER    &td              &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
                                    &globe_macro  &lt RAISE TAB  &hm LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &hm RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
             >;
         };
