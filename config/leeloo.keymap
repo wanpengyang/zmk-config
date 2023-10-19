@@ -162,7 +162,7 @@ nice_view_spi: &spi0 {
             , <&macro_release &mo 0 &kp LSHFT>
             ;
         };
-        }
+        
     };
 
     behaviors {
