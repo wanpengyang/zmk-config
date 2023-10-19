@@ -100,11 +100,6 @@ nice_view_spi: &spi0 {
             bindings = <&kp LG(LA(V))>;
             key-positions = <40 41>;
         };
-
-        doubleshift {
-            bindings = <&kp RSHFT>;
-            key-positions = <53 54>;
-        };
     };
 
     macros {
