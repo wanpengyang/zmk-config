@@ -135,24 +135,22 @@ nice_view_spi: &spi0 {
 
             // <&macro_tap &tog 10>;
         };
-
-            caps_macro: caps_macro {
-        compatible = "zmk,behavior-macro";
-        label = "caps_macro";
-        #binding-cells = <0>;
-        wait-ms = <30>;
-        tap-ms = <200>;
-        bindings = <&kp CAPS>;
-    };
-            globe_macro: globe_macro {
-        compatible = "zmk,behavior-macro";
-        label = "globe_macro";
-        #binding-cells = <0>;
-        wait-ms = <30>;
-        tap-ms = <200>;
-        bindings = <&kp LC(SPACE)>;
-    };
-
+        caps_macro: caps_macro {
+            compatible = "zmk,behavior-macro";
+            label = "caps_macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <200>;
+            bindings = <&kp CAPS>;
+        };
+        globe_macro: globe_macro {
+            compatible = "zmk,behavior-macro";
+            label = "globe_macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <200>;
+            bindings = <&kp LC(SPACE)>;
+        };
     };
 
     behaviors {
@@ -164,7 +162,6 @@ nice_view_spi: &spi0 {
             tapping-term-ms = <200>;
             bindings = <&kp>, <&caps_macro>;
         };
-
         td_mt: tap_dance_mod_tap {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_MOD_TAP";
@@ -172,7 +169,6 @@ nice_view_spi: &spi0 {
             tapping-term-ms = <200>;
             bindings = <&kp LSHIFT>, <&caps_macro>;
         };
-
         tdw_Q: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "WIN_QUIT";
@@ -222,18 +218,18 @@ nice_view_spi: &spi0 {
         default_mac_layer {
             label = " MAC";
             bindings = <
-&kp ESC       &kp N1  &kp N2       &kp N3         &kp N4         &kp N5                                            &kp N6            &kp N7          &kp N8      &kp N9       &kp N0    &kp BSPC
-&kp TAB       &tdx_Q  &kp W        &kp E          &kp R          &kp T                                             &kp Y             &kp U           &kp I       &kp O        &kp P     &kp BSLH
-&kp GRAVE     &kp A   &hm LCTRL S  &hm LALT D     &hm LGUI F     &kp G                                             &kp H             &hm LGUI J      &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
-&td_mt  &kp Z   &kp X        &kp C          &kp V          &kp B           &lt NUM UNDER    &td              &kp N             &kp M           &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
-                                   &globe_macro  &lt RAISE TAB  &hm LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &hm RSHIFT SPACE  &lt RAISE BSPC  &mo BLE
+&kp ESC    &kp N1  &kp N2       &kp N3        &kp N4           &kp N5                                            &kp N6            &kp N7         &kp N8      &kp N9       &kp N0    &kp BSPC
+&kp TAB    &tdx_Q  &kp W        &kp E         &kp R            &kp T                                             &kp Y             &kp U          &kp I       &kp O        &kp P     &kp BSLH
+&kp GRAVE  &kp A   &hm LCTRL S  &hm LALT D    &hm LGUI F       &kp G                                             &kp H             &hm LGUI J     &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
+&td_mt     &kp Z   &kp X        &kp C         &kp V            &kp B           &lt NUM UNDER    &kp RET          &kp N             &kp M          &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
+                                &globe_macro  &lt RAISE SPACE  &hm LSHIFT RET  &lt LOWER MINUS  &lt LOWER EQUAL  &hm RSHIFT SPACE  &lt RAISE RET  &mo BLE
             >;
         };
 
         lower_layer {
             label = " Lower";
             bindings = <
-&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                            &trans     &trans    &trans     &trans    &trans     &trans
+&kp LG(LA(SPACE))  &kp LC(LA(Z))  &kp LC(LA(X))  &kp LC(LA(V))  &kp LC(LA(M))  &kp LC(LA(H))                            &trans     &trans    &trans     &trans    &kp UNDER  &kp PLUS
 &trans             &kp EXCL       &kp AT         &kp POUND      &kp DOLLAR     &kp PERCENT                              &kp CARET  &kp AMPS  &kp STAR   &kp LPAR  &kp RPAR   &kp PIPE
 &kp TILDE          &kp N1         &kp N2         &kp N3         &kp N4         &kp N5                                   &kp LBKT   &kp RBKT  &kp COMMA  &kp DOT   &kp COLON  &kp DQT
 &trans             &kp N6         &kp N7         &kp N8         &kp N9         &kp N0         &kp LC(UP)  &kp LC(DOWN)  &kp LBRC   &kp RBRC  &kp LT     &kp GT    &kp QMARK  &trans
