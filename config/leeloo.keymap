@@ -208,7 +208,7 @@ nice_view_spi: &spi0 {
             label = "TD NAV";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp PLUS>, <&tog NAV>;
+            bindings = <&globe_macro>, <&tog NAV>;
         };
     };
 
@@ -222,7 +222,7 @@ nice_view_spi: &spi0 {
 &kp TAB    &kp Q   &kp W        &kp E         &kp R          &kp T                                                 &kp Y             &kp U                &kp I       &kp O        &kp P     &kp BSLH
 &kp GRAVE  &kp A   &hm LCTRL S  &hm LALT D    &hm LGUI F     &kp G                                                 &kp H             &hm LGUI J           &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
 &td_mt     &kp Z   &kp X        &kp C         &kp V          &kp B             &lt NUM MINUS     &kp EQUAL         &kp N             &kp M                &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
-                                &globe_macro  &lt RAISE TAB  &hm LSHIFT SPACE  &lt LOWER RETURN  &lt LOWER RETURN  &hm RSHIFT SPACE  &lt RAISE BACKSPACE  &mo BLE
+                                &td  &lt RAISE TAB  &hm LSHIFT SPACE  &lt LOWER RETURN  &lt LOWER RETURN  &hm RSHIFT SPACE  &lt RAISE BACKSPACE  &mo BLE
             >;
         };
 
