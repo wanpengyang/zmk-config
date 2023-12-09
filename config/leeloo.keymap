@@ -214,10 +214,9 @@ nice_view_spi: &spi0 {
             label = "hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "tap-preferred";
+            flavor = "hold-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
-            global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
 
@@ -262,7 +261,7 @@ nice_view_spi: &spi0 {
 &kp TAB    &kp Q   &kp W        &kp E       &kp R          &kp T                                                    &kp Y             &kp U                &kp I       &kp O        &kp P     &kp BSLH
 &kp GRAVE  &kp A   &hm LCTRL S  &hm LALT D  &hm LGUI F     &hl RAISE G                                              &kp H             &hm LGUI J           &hm RALT K  &hm RCTRL L  &kp SEMI  &kp SQT
 &td_mt     &kp Z   &kp X        &kp C       &kp V          &kp B             &lt NUM LC(LEFT)  &kp RC(RIGHT_ARROW)  &kp N             &kp M                &kp COMMA   &kp DOT      &kp FSLH  &kp RSHFT
-                                &td         &lt RAISE TAB  &hm LSHIFT SPACE  &lt LOWER RETURN  &lt LOWER RETURN     &hm RSHIFT SPACE  &lt RAISE BACKSPACE  &mo BLE
+                                &td         &lt RAISE TAB  &ht LSHIFT SPACE  &lt LOWER RETURN  &lt LOWER RETURN     &ht RSHIFT SPACE  &lt RAISE BACKSPACE  &mo BLE
             >;
         };
 
