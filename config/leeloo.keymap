@@ -91,11 +91,6 @@ nice_view_spi: &spi0 {
             key-positions = <40 39>;
         };
 
-        tognav {
-            bindings = <&tog NAV>;
-            key-positions = <47 48>;
-        };
-
         clipboard_history {
             bindings = <&kp LG(LA(V))>;
             key-positions = <40 41>;
@@ -119,6 +114,26 @@ nice_view_spi: &spi0 {
         plus {
             bindings = <&kp PLUS>;
             key-positions = <20 21>;
+        };
+
+        up_arrow {
+            bindings = <&kp UP_ARROW>;
+            key-positions = <34 35>;
+        };
+
+        down_arrow {
+            bindings = <&kp DOWN_ARROW>;
+            key-positions = <48 49>;
+        };
+
+        left_arrow {
+            bindings = <&kp LEFT>;
+            key-positions = <47 48>;
+        };
+
+        right_arrow {
+            bindings = <&kp RIGHT>;
+            key-positions = <48 49>;
         };
     };
 
